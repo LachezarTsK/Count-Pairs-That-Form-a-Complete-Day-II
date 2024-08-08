@@ -9,7 +9,7 @@ public class Solution {
 
         for (int current : hours) {
             int remainder = current % _24_HOURS;
-            int complementaryTo24Hours = (remainder != 0) ? (_24_HOURS - (current % _24_HOURS)) : 0;
+            int complementaryTo24Hours = (_24_HOURS - (remainder)) % _24_HOURS;
             countCompleteDayPairs += remainderHours[complementaryTo24Hours];
             ++remainderHours[remainder];
         }
