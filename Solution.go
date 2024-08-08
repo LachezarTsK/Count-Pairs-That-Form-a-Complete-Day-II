@@ -11,16 +11,9 @@ func countCompleteDayPairs(hours []int) int64 {
 
     for _, current := range hours {
         remainder := current % _24_HOURS
-        complementaryTo24Hours := Ternary((remainder != 0), (_24_HOURS - (current % _24_HOURS)), 0)
+        complementaryTo24Hours := (_24_HOURS - (remainder)) % _24_HOURS
         countCompleteDayPairs += int64(remainderHours[complementaryTo24Hours])
         remainderHours[remainder]++
     }
     return countCompleteDayPairs
-}
-
-func Ternary[T any](condition bool, first T, second T) T {
-    if condition {
-        return first
-    }
-    return second
 }
