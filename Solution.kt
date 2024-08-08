@@ -11,7 +11,7 @@ class Solution {
 
         for (current in hours) {
             val remainder = current % _24_HOURS
-            val complementaryTo24Hours = if (remainder != 0) (_24_HOURS - (current % _24_HOURS)) else 0
+            val complementaryTo24Hours = (_24_HOURS - (remainder)) % _24_HOURS
             countCompleteDayPairs += remainderHours[complementaryTo24Hours]
             ++remainderHours[remainder]
         }
