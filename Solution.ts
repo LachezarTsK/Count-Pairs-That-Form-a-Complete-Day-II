@@ -6,7 +6,7 @@ function countCompleteDayPairs(hours: number[]): number {
 
     for (let current of hours) {
         let remainder = current % _24_HOURS;
-        let complementaryTo24Hours = (remainder !== 0) ? (_24_HOURS - (current % _24_HOURS)) : 0;
+        let complementaryTo24Hours = (_24_HOURS - (remainder)) % _24_HOURS;
         countCompleteDayPairs += remainderHours[complementaryTo24Hours];
         ++remainderHours[remainder];
     }
